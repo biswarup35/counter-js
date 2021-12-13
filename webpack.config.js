@@ -65,7 +65,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
-    liveReload: true,
+    // liveReload: true,
     devMiddleware: {
       serverSideRender: true,
     },
