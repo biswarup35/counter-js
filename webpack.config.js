@@ -11,7 +11,7 @@ module.exports = {
     filename: "[name].[contenthash].js",
     clean: true,
   },
-  devtool: "inline-source-map",
+  devtool: "eval",
   //loaders
   module: {
     rules: [
@@ -48,14 +48,23 @@ module.exports = {
   ],
   // dev-server
   devServer: {
+    host: "local-ip",
+    server: "http",
     static: {
       directory: path.resolve(__dirname, "public"),
+      watch: true,
     },
     watchFiles: [path.resolve(__dirname, "src")],
     port: 3000,
     open: true,
     hot: true,
+    liveReload: true,
+    client: {
+      reconnect: false,
+    },
   },
   //Stats
   stats: "minimal",
+  // target
+  target: "web",
 };
