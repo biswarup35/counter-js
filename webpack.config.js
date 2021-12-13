@@ -48,19 +48,26 @@ module.exports = {
   ],
   // dev-server
   devServer: {
-    host: "local-ip",
+    host: "localhost",
     server: "http",
     static: {
       directory: path.resolve(__dirname, "public"),
       watch: true,
     },
     watchFiles: [path.resolve(__dirname, "src")],
+    client: {
+      reconnect: false,
+      overlay: {
+        errors: true,
+      },
+      logging: "none",
+    },
     port: 3000,
     open: true,
     hot: true,
     liveReload: true,
-    client: {
-      reconnect: false,
+    devMiddleware: {
+      serverSideRender: true,
     },
   },
   //Stats
